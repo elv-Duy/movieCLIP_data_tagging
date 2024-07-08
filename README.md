@@ -3,7 +3,6 @@ This repository contains a script for bulk tagging the ingested MovieCLIP media 
 
 ## MovieCLIP Tags
 * Download the complete list of MovieCLIP Tags from this [Drive Link](https://drive.google.com/file/d/15EhA0BT3IF0EuLP1yXr5nn5ad9soxxox/view).
-
 * More details on MovieCLIP Tags can be found [here](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/README.md).
 
 ## Installation
@@ -14,6 +13,7 @@ cd elv-utils-js
 git checkout mez-video-tag
 npm install
 ```
+
 ## config.json
 * Create a file named `config.json` in the directory where `bulk_tagging.py` is located.
 * Copy the script provided below and paste it into your `config.json`. Replace `YOUR_PRIVATE_KEY` and `YOUR_PATH` with your specific information.
@@ -33,3 +33,8 @@ npm install
     "path_from_utilities_to_tagging_json": "YOUR_PATH"
 }
 ```
+
+## Execute the tagging process
+`python bulk_tagging.py`
+
+
