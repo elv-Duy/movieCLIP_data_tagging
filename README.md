@@ -17,21 +17,21 @@ npm install
 
 ## Configuration Setup
 * Create `config.json` in this directory.
-* Copy the script provided below and paste it into your `config.json`.
+* Copy and paste the script provided below.
   *  `config_url`: configuration url
   *  `private_key`: private key
   *  `mez_lib_id`: mezzanine library id
-  *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json`
-  *  `path_to_tagging_json`: path to the output JSON `tagging.json`
-  *  `path_to_utilities`: path to `/elv-utils-js/utilities`
+  *  `movieCLIP_json_path`: path to `movieCLIP_dataset.json`
+  *  `clip_json_path`: path to the output JSON `clip.json`
+  *  `utilities_path`: path to `/elv-utils-js/utilities`
 ```
 {
-    "config_url": "configuration_url",
-    "private_key": "private_key",
-    "mez_lib_id": "mezzanine_library_id",
-    "path_to_movieCLIP_json": "/path/to/movieCLIP.json",
-    "path_to_tagging_json": "/path/to/tagging.json",
-    "path_to_utilities": "/path/to/utilities"
+    "config_url": "URL for the configuration",
+    "private_key": "Private key",
+    "mez_lib_id": "Mezzanine library ID",
+    "movieCLIP_json_path": "/path/to/movieCLIP.json",
+    "clip_json_path": "/path/to/clip.json",
+    "utilities_path": "/path/to/utilities"
 }
 ```
 
@@ -42,10 +42,10 @@ python bulk_tagging.py
 
 ## Tagging process
 * Extract all object IDs from the mezzanine library. 
-* Generate a `tagging.json` for each object ID and apply tags to the corresponding object on the Fabric.
+* Generate a `clip.json` for each object ID and apply tags to the corresponding object on the Fabric.
 
 ## Sample Output
-* `tagging.json`
+* `clip.json`
 ```
 {
     "iq__yiLobFRbwd3d5ZsSV3TtC3wJVoV": {
