@@ -8,7 +8,7 @@ A bulk tagging script for the ingested MovieCLIP media on the Eluvio Content Fab
 
 ## Installation
 * [Python](https://github.com/pypa/pip)
-* `elv-utils-js`
+
 ```
 git clone https://github.com/eluv-io/elv-utils-js
 cd elv-utils-js
@@ -19,12 +19,7 @@ npm install
 ## Configuration Setup
 * Create `config.json` in this directory.
 * Copy and paste the script provided below.
-  *  `config_url`: configuration url
-  *  `private_key`: private key
-  *  `mez_lib_id`: mezzanine library id
-  *  `movieCLIP_json_path`: path to `movieCLIP_dataset.json`
-  *  `clip_json_path`: path to the output JSON `clip.json`
-  *  `utilities_path`: path to `/elv-utils-js/utilities`
+
 ```
 {
     "config_url": "URL for the configuration",
