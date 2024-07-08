@@ -42,7 +42,7 @@ python bulk_tagging.py
 ## How it works
 The script first extracts all object IDs from the mezzanine library. Then, for each object ID, it automatically generates a `tagging.json` file, which is subsequently utilized to apply tags to the corresponding object on the Fabric.
 
-## Sample Output
+## Sample Output JSON
 * Here is a sample output for `tagging.json`
 ```
 {
