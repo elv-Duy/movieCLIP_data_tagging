@@ -14,7 +14,7 @@ git checkout mez-video-tag
 npm install
 ```
 
-## `config.json`
+### `config.json`
 * Create a file named `config.json` in the directory where `bulk_tagging.py` is located.
 * Copy the script provided below and paste it into your `config.json`. Replace `YOUR_PRIVATE_KEY` and `YOUR_PATH` with your specific information.
   *  `private_key`: your private key
@@ -42,7 +42,7 @@ python bulk_tagging.py
 ## How it works
 The script first extracts all object IDs from the mezzanine library. Then, for each object ID, it automatically generates a `tagging.json` file, which is subsequently utilized to apply tags to the corresponding object on the Fabric.
 
-## Sample output `tagging.json`
+## Sample output ### `tagging.json`
 ```
 {
     "iq__yiLobFRbwd3d5ZsSV3TtC3wJVoV": {
