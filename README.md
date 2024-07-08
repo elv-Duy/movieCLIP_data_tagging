@@ -19,7 +19,7 @@ npm install
 * Copy the script provided below and paste it into your `config.json`.
   *  `config_url`: fabric configuration url
   *  `private_key`: your private key
-  *  `mez_lib`: Mezzanine library
+  *  `mez_lib`: Mezzanine library ID
   *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json` (e.g. `"./movieCLIP_dataset.json"`)
   *  `path_to_tagging_json`: path to the output JSON `tagging.json` (e.g. `"./tagging.json"`)
   *  `path_to_utilities`: path to `/elv-utils-js/utilities` (e.g. `"./elv-utils-js/utilities"`)
