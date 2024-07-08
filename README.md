@@ -1,8 +1,9 @@
 # movieCLIP_data_tagging
-This repository contains a script for bulk tagging the ingested MovieCLIP media on the Eluvio Content Fabric. In MovieCLIP tags, each video is about 2 minutes in length, typically segmented into 10 to 100 shots annotated with the top 5 labels based on confidence scores.
+This repository contains a script for bulk tagging the ingested MovieCLIP media on the Eluvio Content Fabric.
 
 ## MovieCLIP Tags
 * Download the complete list of MovieCLIP Tags from this [Drive Link](https://drive.google.com/file/d/15EhA0BT3IF0EuLP1yXr5nn5ad9soxxox/view).
+* In MovieCLIP tags, each video is about 2 minutes in length, typically segmented into 10 to 100 shots tagged with the top 5 labels based on confidence scores.
 * More details on MovieCLIP Tags can be found [here](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/README.md).
 
 ## Installation
@@ -15,15 +16,15 @@ npm install
 ```
 
 ## Configuration File Creation
-* Create `config.json` in the directory where `bulk_tagging.py` is located.
+* Create `config.json` in this directory.
 * Copy the script provided below and paste it into your `config.json`.
   *  `config_url`: fabric configuration url
   *  `private_key`: your private key
   *  `mez_lib`: Mezzanine library ID
-  *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json` (e.g. `"./movieCLIP_dataset.json"`)
-  *  `path_to_tagging_json`: path to the output JSON `tagging.json` (e.g. `"./tagging.json"`)
-  *  `path_to_utilities`: path to `/elv-utils-js/utilities` (e.g. `"./elv-utils-js/utilities"`)
-  *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json` (e.g. `"../../tagging.json"`)
+  *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json`
+  *  `path_to_tagging_json`: path to the output JSON `tagging.json`
+  *  `path_to_utilities`: path to `/elv-utils-js/utilities`
+  *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json`
 ```
 {
     "config_url": "FABRIC_CONFIG_URL",
@@ -42,10 +43,10 @@ python bulk_tagging.py
 ```
 
 ## Tagging process
-The script first extracts all object IDs from the mezzanine library. Then, for each object ID, it automatically generates a `tagging.json` file, which is subsequently utilized to apply tags to the corresponding object on the Fabric.
+* Extracts all object IDs from the mezzanine library. 
+* For each object ID, a `tagging.json` is automatically generated to apply tags to the corresponding object on the Fabric.
 
-## Sample Output JSON
-* Here is a sample output for `tagging.json`
+## Sample Output tagging.json
 ```
 {
     "iq__yiLobFRbwd3d5ZsSV3TtC3wJVoV": {
