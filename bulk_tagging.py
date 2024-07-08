@@ -16,17 +16,16 @@ config_data = read_json_file(config_json_file)
 
 os.environ['FABRIC_CONFIG_URL'] = config_data["config_url"]
 os.environ['PRIVATE_KEY'] = config_data["private_key"]
-mez_lib = config_data["mez_lib"]
-movieCLIP_json_file = config_data["path_to_movieCLIP_json"]
-tagging_json_file = config_data["path_to_tagging_json"]
-path_to_utilities = config_data["path_to_utilities"]
-path_from_utilities_to_tagging_json = config_data["path_from_utilities_to_tagging_json"]
+mez_lib_id = config_data["mez_lib_id"]
+movieCLIP_json_file = config_data["movieCLIP_json_path"]
+clip_json_file = config_data["clip_json_path"]
+utilities_path = config_data["utilities_path"]
 
 movieCLIP_data = read_json_file(movieCLIP_json_file)
 
 def get_objects_list(lib_id):
     command = ['node', 'LibraryListObjects.js', '\\', '--libraryId', lib_id, '\\', '--fields', '/public/asset_metadata/movieClips ID']
-    result = subprocess.run(command, capture_output=True, text=True, cwd=path_to_utilities, check=True)
+    result = subprocess.run(command, capture_output=True, text=True, cwd=utilities_path, check=True)
     split_lines = result.stdout.strip().split('\n')
     objects = dict()
 
@@ -54,19 +53,19 @@ def bulk_tag(lib_id):
     list_objects = get_objects_list(lib_id)
     
     for object_id in list_objects:
-        tagging_data = dict()
-        tagging_data[object_id] = dict()
-        tagging_data[object_id]["label"] = "Event - ALL"
-        tagging_data[object_id]["tags"] = list()
+        clip_data = dict()
+        clip_data[object_id] = dict()
+        clip_data[object_id]["label"] = "Event - ALL"
+        clip_data[object_id]["tags"] = list()
 
         for shot in movieCLIP_data[list_objects[object_id]].values():
             for label in shot["labels"]:
-                tagging_data[object_id]["tags"].append({"start_time": int(shot["start_time"] * 1000),
+                clip_data[object_id]["tags"].append({"start_time": int(shot["start_time"] * 1000),
                                                 "end_time": int(shot["end_time"] * 1000),
                                                 "text": f'{label} ({round(shot["labels"][label], 4)})'})
                 
-        write_data(tagging_data, tagging_json_file)
-        command = ['node', 'MezSetVideoTags.js', '\\', '--objectId', object_id, '\\', '--tags', path_from_utilities_to_tagging_json, '\\', '--replace']
-        subprocess.run(command, cwd=path_to_utilities, check=True)
+        write_data(clip_data, clip_json_file)
+        command = ['node', 'MezSetVideoTags.js', '\\', '--objectId', object_id, '\\', '--tags', clip_json_file, '\\', '--replace']
+        subprocess.run(command, cwd=utilities_path, check=True)
 
-bulk_tag(mez_lib)
+bulk_tag(mez_lib_id)
