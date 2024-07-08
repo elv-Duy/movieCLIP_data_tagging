@@ -65,3 +65,5 @@ python bulk_tagging.py
 ## Sample Output
 
 <img width="1322" alt="Screenshot 2024-07-08 at 3 00 45 PM" src="https://github.com/elv-Duy/movieCLIP_data_tagging/assets/171614703/b93f3f31-172a-4565-ac2e-3ef062b33126">
+
+
