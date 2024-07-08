@@ -1,13 +1,13 @@
 # movieCLIP_data_tagging
-This repository contains a script for bulk tagging the ingested MovieCLIP media on the Eluvio Content Fabric.
+A bulk tagging script for the ingested MovieCLIP media on the Eluvio Content Fabric.
 
 ## MovieCLIP Tags
 * Download the complete list of MovieCLIP Tags from this [Drive Link](https://drive.google.com/file/d/15EhA0BT3IF0EuLP1yXr5nn5ad9soxxox/view).
-* In MovieCLIP tags, each video is about 2 minutes in length, typically segmented into 10 to 100 shots tagged with the top 5 labels based on confidence scores.
+* Each video in MovieCLIP Tags averages 2 minutes in length and typically segmented into 10 to 100 shots tagged with the top 5 labels based on confidence scores.
 * More details on MovieCLIP Tags can be found [here](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/README.md).
 
 ## Installation
-* Download package `elv-utils-js`
+* Download `elv-utils-js` package
 ```
 git clone https://github.com/eluv-io/elv-utils-js
 cd elv-utils-js
@@ -27,13 +27,13 @@ npm install
   *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json`
 ```
 {
-    "config_url": "FABRIC_CONFIG_URL",
-    "private_key": "YOUR_PRIVATE_KEY",
-    "mez_lib": "MEZ_LIB",
-    "path_to_movieCLIP_json": "YOUR_PATH",
-    "path_to_tagging_json": "YOUR_PATH",
-    "path_to_utilities": "YOUR_PATH",
-    "path_from_utilities_to_tagging_json": "YOUR_PATH"
+    "config_url": "configuration_url",
+    "private_key": "your_private_key_here",
+    "mez_lib": "mezzanine_library_id",
+    "path_to_movieCLIP_json": "/path/to/movieCLIP.json",
+    "path_to_tagging_json": "/path/to/tagging.json",
+    "path_to_utilities": "/path/to/utilities",
+    "path_from_utilities_to_tagging_json": "/path/from/utilities/to/tagging.json"
 }
 ```
 
@@ -44,7 +44,7 @@ python bulk_tagging.py
 
 ## Tagging process
 * Extract all object IDs from the mezzanine library. 
-* For each object ID, a `tagging.json` is automatically generated to apply tags to the corresponding object on the Fabric.
+* Generate a `tagging.json` for each object ID and apply tags to the corresponding object on the Fabric.
 
 ## Sample Output
 * `tagging.json`
