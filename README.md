@@ -18,10 +18,10 @@ npm install
 * Create a file named `config.json` in the directory where `bulk_tagging.py` is located.
 * Copy the script provided below and paste it into your `config.json`. Replace `YOUR_PRIVATE_KEY` and `YOUR_PATH` with your specific information.
   *  `private_key`: your private key
-  *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json` (eg. `"./movieCLIP_dataset.json"`)
-  *  `path_to_tagging_json`: path to the output JSON `tagging.json` (eg. `"./tagging.json"`)
-  *  `path_to_utilities`: path to `/elv-utils-js/utilities` (eg. `"./elv-utils-js/utilities"`)
-  *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json` (eg. `"../../tagging.json"`)
+  *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json` (e.g. `"./movieCLIP_dataset.json"`)
+  *  `path_to_tagging_json`: path to the output JSON `tagging.json` (e.g. `"./tagging.json"`)
+  *  `path_to_utilities`: path to `/elv-utils-js/utilities` (e.g. `"./elv-utils-js/utilities"`)
+  *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json` (e.g. `"../../tagging.json"`)
 ```
 {
     "config_url": "https://main.net955305.contentfabric.io/config",
