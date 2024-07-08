@@ -14,7 +14,7 @@ git checkout mez-video-tag
 npm install
 ```
 
-### `config.json`
+## Configuration File Creation
 * Create a file named `config.json` in the directory where `bulk_tagging.py` is located.
 * Copy the script provided below and paste it into your `config.json`. Replace `YOUR_PRIVATE_KEY` and `YOUR_PATH` with your specific information.
   *  `private_key`: your private key
