@@ -15,18 +15,20 @@ npm install
 ```
 
 ## Configuration File Creation
-* Create a file named `config.json` in the directory where `bulk_tagging.py` is located.
-* Copy the script provided below and paste it into your `config.json`. Replace `YOUR_PRIVATE_KEY` and `YOUR_PATH` with your specific information.
+* Create `config.json` in the directory where `bulk_tagging.py` is located.
+* Copy the script provided below and paste it into your `config.json`.
+  *  `config_url`: fabric configuration url
   *  `private_key`: your private key
+  *  `mez_lib`: Mezzanine library
   *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json` (e.g. `"./movieCLIP_dataset.json"`)
   *  `path_to_tagging_json`: path to the output JSON `tagging.json` (e.g. `"./tagging.json"`)
   *  `path_to_utilities`: path to `/elv-utils-js/utilities` (e.g. `"./elv-utils-js/utilities"`)
   *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json` (e.g. `"../../tagging.json"`)
 ```
 {
-    "config_url": "https://main.net955305.contentfabric.io/config",
+    "config_url": "FABRIC_CONFIG_URL",
     "private_key": "YOUR_PRIVATE_KEY",
-    "mez_lib": "ilib4JvLVStm2pDMa89332h8tNqUCZvY",
+    "mez_lib": "MEZ_LIB",
     "path_to_movieCLIP_json": "YOUR_PATH",
     "path_to_tagging_json": "YOUR_PATH",
     "path_to_utilities": "YOUR_PATH",
@@ -39,7 +41,7 @@ npm install
 python bulk_tagging.py
 ```
 
-## How it works
+## Process
 The script first extracts all object IDs from the mezzanine library. Then, for each object ID, it automatically generates a `tagging.json` file, which is subsequently utilized to apply tags to the corresponding object on the Fabric.
 
 ## Sample Output JSON
