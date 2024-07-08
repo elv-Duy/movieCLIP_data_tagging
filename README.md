@@ -35,6 +35,8 @@ npm install
 ```
 
 ## Execute the tagging process
-`python bulk_tagging.py`
+```
+python bulk_tagging.py
+```
 
 
