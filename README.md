@@ -7,7 +7,7 @@ A bulk tagging script for the ingested MovieCLIP media on the Eluvio Content Fab
 * More details on MovieCLIP Tags can be found [here](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/README.md).
 
 ## Installation
-* Install [Python](https://github.com/pypa/pip)
+* [Python](https://github.com/pypa/pip)
 * `elv-utils-js`
 ```
 git clone https://github.com/eluv-io/elv-utils-js
