@@ -11,5 +11,6 @@ This repository contains a script for bulk tagging the ingested MovieCLIP media 
 ```
 git clone https://github.com/eluv-io/elv-utils-js
 cd elv-utils-js
+git checkout mez-video-tag
 npm install
 ```
