@@ -14,3 +14,22 @@ cd elv-utils-js
 git checkout mez-video-tag
 npm install
 ```
+## config.json
+* Create a file named `config.json` in the directory where `bulk_tagging.py` is located.
+* Copy the script provided below and paste it into your `config.json`. Replace `YOUR_PRIVATE_KEY` and `YOUR_PATH` with your specific information.
+  *  `private_key`: your private key
+  *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json` (eg. `"./movieCLIP_dataset.json"`)
+  *  `path_to_tagging_json`: path to the output JSON `tagging.json` (eg. `"./tagging.json"`)
+  *  `path_to_utilities`: path to `/elv-utils-js/utilities` (eg. `"./elv-utils-js/utilities"`)
+  *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json` (eg. `"../../tagging.json"`)
+```
+{
+    "config_url": "https://main.net955305.contentfabric.io/config",
+    "private_key": "YOUR_PRIVATE_KEY",
+    "mez_lib": "ilib4JvLVStm2pDMa89332h8tNqUCZvY",
+    "path_to_movieCLIP_json": "YOUR_PATH",
+    "path_to_tagging_json": "YOUR_PATH",
+    "path_to_utilities": "YOUR_PATH",
+    "path_from_utilities_to_tagging_json": "YOUR_PATH"
+}
+```
