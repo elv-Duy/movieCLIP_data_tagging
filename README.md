@@ -7,7 +7,7 @@ A bulk tagging script for the ingested MovieCLIP media on the Eluvio Content Fab
 * More details on MovieCLIP Tags can be found [here](https://github.com/usc-sail/mica-MovieCLIP/blob/main/split_files/README.md).
 
 ## Installation
-* Download `elv-utils-js` package
+
 ```
 git clone https://github.com/eluv-io/elv-utils-js
 cd elv-utils-js
@@ -15,29 +15,27 @@ git checkout mez-video-tag
 npm install
 ```
 
-## Configuration File Creation
+## Configuration Setup
 * Create `config.json` in this directory.
 * Copy the script provided below and paste it into your `config.json`.
-  *  `config_url`: fabric configuration url
-  *  `private_key`: your private key
-  *  `mez_lib`: Mezzanine library ID
+  *  `config_url`: configuration url
+  *  `private_key`: private key
+  *  `mez_lib_id`: mezzanine library id
   *  `path_to_movieCLIP_json`: path to `movieCLIP_dataset.json`
   *  `path_to_tagging_json`: path to the output JSON `tagging.json`
   *  `path_to_utilities`: path to `/elv-utils-js/utilities`
-  *  `path_from_utilities_to_tagging_json`: path from `/elv-utils-js/utilities` to `tagging.json`
 ```
 {
     "config_url": "configuration_url",
-    "private_key": "your_private_key_here",
-    "mez_lib": "mezzanine_library_id",
+    "private_key": "private_key",
+    "mez_lib_id": "mezzanine_library_id",
     "path_to_movieCLIP_json": "/path/to/movieCLIP.json",
     "path_to_tagging_json": "/path/to/tagging.json",
-    "path_to_utilities": "/path/to/utilities",
-    "path_from_utilities_to_tagging_json": "/path/from/utilities/to/tagging.json"
+    "path_to_utilities": "/path/to/utilities"
 }
 ```
 
-## Execute the tagging process
+## Command
 ```
 python bulk_tagging.py
 ```
