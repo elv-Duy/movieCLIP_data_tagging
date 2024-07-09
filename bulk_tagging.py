@@ -49,21 +49,25 @@ def get_objects_list(lib_id):
     return objects
         
 
+def get_clip_data(object_id, list_objects):
+    clip_data = dict()
+    clip_data[object_id] = dict()
+    clip_data[object_id]["label"] = "Event - ALL"
+    clip_data[object_id]["tags"] = list()
+
+    for shot in movieCLIP_data[list_objects[object_id]].values():
+        for label in shot["labels"]:
+            clip_data[object_id]["tags"].append({"start_time": int(shot["start_time"] * 1000),
+                                            "end_time": int(shot["end_time"] * 1000),
+                                            "text": f'{label} ({round(shot["labels"][label], 4)})'})
+    return clip_data
+
+
 def bulk_tag(lib_id):
     list_objects = get_objects_list(lib_id)
     
     for object_id in list_objects:
-        clip_data = dict()
-        clip_data[object_id] = dict()
-        clip_data[object_id]["label"] = "Event - ALL"
-        clip_data[object_id]["tags"] = list()
-
-        for shot in movieCLIP_data[list_objects[object_id]].values():
-            for label in shot["labels"]:
-                clip_data[object_id]["tags"].append({"start_time": int(shot["start_time"] * 1000),
-                                                "end_time": int(shot["end_time"] * 1000),
-                                                "text": f'{label} ({round(shot["labels"][label], 4)})'})
-                
+        clip_data = get_clip_data(object_id, list_objects)
         write_data(clip_data, clip_json_file)
         command = ['node', 'MezSetVideoTags.js', '\\', '--objectId', object_id, '\\', '--tags', clip_json_file, '\\', '--replace']
         subprocess.run(command, cwd=utilities_path, check=True)
