@@ -17,8 +17,8 @@ npm install
 ```
 
 ## Configuration Setup
-* Create `config.json` in this directory.
-* Copy and paste the script provided below.
+* Create `config.json`
+* Copy and paste the script provided below
 
 ```
 {
