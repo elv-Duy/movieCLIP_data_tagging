@@ -2,3 +2,5 @@ config.json
 movieCLIP_dataset.json
 clip.json
 unit_test.py
+non_tagged_objects.txt
+tagged_objects.txt
