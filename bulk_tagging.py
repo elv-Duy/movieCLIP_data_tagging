@@ -50,6 +50,7 @@ def get_objects_list(lib_id):
                     print('Object', info[0], 'has wrong metadata format')
                 j += 1
             break
+    print("Successfully extracted list of objects")
 
     return objects
             
@@ -91,6 +92,7 @@ def bulk_tag(lib_id):
     non_tagged_file = open(non_tagged_objects_file, 'a')
     tagged_file = open(tagged_objects_file, 'a')
     
+    counter = 0
     for object_id in list_objects:
         if object_id in non_tagged_objects or object_id in tagged_objects:
             continue
@@ -101,9 +103,15 @@ def bulk_tag(lib_id):
             continue
 
         write_data(clip_data, clip_json_file)
-        command = ['node', 'MezSetVideoTags.js', '\\', '--objectId', object_id, '\\', '--tags', clip_json_file, '\\', '--replace']
-        subprocess.run(command, cwd=utilities_path, check=True)
-        tagged_file.write(object_id + '\n')
+        try:
+            command = ['node', 'MezSetVideoTags.js', '\\', '--objectId', object_id, '\\', '--tags', clip_json_file, '\\', '--replace']
+            subprocess.run(command, cwd=utilities_path, check=True)
+            tagged_file.write(object_id + '\n')
+        except:
+            non_tagged_file.write(object_id + '\n')
+
+        counter += 1
+        print(counter, "objects has been processed")
 
 # open(non_tagged_objects_file, 'w').close()
 # open(tagged_objects_file, 'w').close()
