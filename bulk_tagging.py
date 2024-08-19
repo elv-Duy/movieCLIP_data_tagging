@@ -113,7 +113,5 @@ def bulk_tag(lib_id):
         counter += 1
         print(counter, "objects has been processed")
 
-# open(non_tagged_objects_file, 'w').close()
-# open(tagged_objects_file, 'w').close()
 if __name__ == '__main__':
     bulk_tag(mez_lib_id)
