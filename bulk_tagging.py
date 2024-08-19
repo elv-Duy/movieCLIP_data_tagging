@@ -47,7 +47,7 @@ def get_objects_list(lib_id):
                 try:
                     objects[info[0]] = {"movie_clips_id": info[1], "duration": convert_to_second(info[2])}
                 except:
-                    print('Object', info[0], 'has wrong metadata format')
+                    print('Can not extract data for', info[0])
                 j += 1
             break
     print("Successfully extracted list of objects")
