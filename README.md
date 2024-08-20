@@ -17,17 +17,13 @@ npm install
 ```
 
 ## Configuration Setup
-* Create `config.json`
-* Copy and paste the script provided below
-
 ```
 {
-    "config_url": "URL for the configuration",
+    "config_url": "Config URL",
     "private_key": "Private key",
     "mez_lib_id": "Mezzanine library ID",
-    "movieCLIP_json_path": "/path/to/movieCLIP.json",
-    "clip_json_path": "/path/to/clip.json",
-    "utilities_path": "/path/to/utilities"
+    "utilities_path": "/path/to/utilities",
+    "media_catalog_id": "Media catalog ID"
 }
 ```
 
