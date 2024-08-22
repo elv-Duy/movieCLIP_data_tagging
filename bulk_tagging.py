@@ -22,7 +22,7 @@ clip_json_file = config_data["clip_json_path"]
 utilities_path = config_data["utilities_path"]
 
 movieCLIP_data = read_json_file(movieCLIP_json_file)
-non_tagged_objects_file = './non_tagged_objects.txt'
+error_objects_file = './error_objects.txt'
 tagged_objects_file = './tagged_objects.txt'
 
 def convert_to_second(hh_mm_ss_format):
@@ -87,19 +87,19 @@ def read_file_txt(file_txt):
 
 def bulk_tag(lib_id):
     list_objects = get_objects_list(lib_id)
-    non_tagged_objects = read_file_txt(non_tagged_objects_file)
     tagged_objects = read_file_txt(tagged_objects_file)
-    non_tagged_file = open(non_tagged_objects_file, 'a')
+    error_file = open(error_objects_file, 'a')
     tagged_file = open(tagged_objects_file, 'a')
+
     
     counter = 0
     for object_id in list_objects:
-        if object_id in non_tagged_objects or object_id in tagged_objects:
+        if object_id in tagged_objects:
             continue
 
         clip_data = get_clip_data(object_id, list_objects)
         if not clip_data:
-            non_tagged_file.write(object_id + '\n')
+            error_file.write(object_id + '\n')
             continue
 
         write_data(clip_data, clip_json_file)
@@ -107,10 +107,10 @@ def bulk_tag(lib_id):
             command = ['node', 'MezSetVideoTags.js', '\\', '--objectId', object_id, '\\', '--tags', clip_json_file, '\\', '--replace']
             subprocess.run(command, cwd=utilities_path, check=True)
             tagged_file.write(object_id + '\n')
+            counter += 1
         except:
-            non_tagged_file.write(object_id + '\n')
+            error_file.write(object_id + '\n')
 
-        counter += 1
         print(counter, "objects has been processed")
 
 if __name__ == '__main__':
